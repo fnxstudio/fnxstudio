@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>FNXstudio</title>
+  <style>
+    :root { --bg: #000; --text: #fff; --muted: #9aa0a6; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.5;
+    }
+    main { width: 100%; display: grid; place-items: center; }
+    img.logo {
+      max-width: min(80vw, 520px);
+      height: auto;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+    }
+    footer {
+      position: fixed;
+      bottom: 16px;
+      left: 0; right: 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer a:hover, footer a:focus { text-decoration: underline; outline: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="FNXstudio_logo_white.png" alt="FNXstudio logo" loading="eager" decoding="async" />
+  </main>
+  <footer>
+    <a href="mailto:fnx@fnxstudio.com">Contact</a>
+  </footer>
+</body>
+</html>
