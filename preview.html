@@ -721,127 +721,6 @@
       vertical-align: middle;
     }
 
-/* --- Team Section Styling --- */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    max-width: 1200px;
-    margin: 50px auto;
-}
-
-.team-card {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.team-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: #888;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.team-image-box {
-    width: 100%;
-    aspect-ratio: 4/5; /* Modern editorial portrait ratio */
-    background-color: #1a1a1a;
-    margin-bottom: 24px;
-    overflow: hidden;
-}
-
-.team-name {
-    font-size: 1.8rem;
-    margin-bottom: 4px;
-    color: #fff;
-}
-
-.team-title {
-    font-size: 1rem;
-    color: #888;
-    margin-bottom: 16px;
-    font-weight: 400;
-}
-
-.team-bio {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ccc;
-    font-weight: 300;
-}
-    /* TEAM (grid) - headshot cards */
-    .team-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .member{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: var(--radius2);
-      overflow:hidden;
-      box-shadow: 0 22px 62px rgba(0,0,0,0.33);
-    }
-    .member-media{
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      background:
-        radial-gradient(900px 500px at 30% 20%, rgba(230,57,70,0.14), transparent 55%),
-        linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-      display:grid;
-      place-items:center;
-      color: rgba(255,255,255,0.60);
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-    }
-    .member-media::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 34px 34px,
-        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 34px 34px;
-      opacity: 0.10;
-      pointer-events:none;
-    }
-    .member-body{
-      padding: 16px 16px 18px;
-      text-align: left;
-    }
-    .member .badge{
-      position:absolute;
-      top: 12px;
-      left: 12px;
-      margin: 0;
-      z-index: 2;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.82);
-      backdrop-filter: blur(10px);
-    }
-    .member h3{
-      margin: 0 0 6px;
-      font-size: 1.18rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-    }
-    .member p{
-      margin: 0;
-      color: rgba(230,57,70,0.92);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.10em;
-      font-size: 0.78rem;
-    }
-
     /* TEAM (grid) */
     .studio-team{
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
@@ -1206,7 +1085,7 @@
       <div class="attention-box">
         <h2 class="attention-title">YOU, MULTIPLIED.</h2>
         <p class="attention-copy">
-          Most marketing today is digital noise. Soulless, repetitive, and easily ignored. To lead in 2026, you don't need a higher volume; you need a deeper resonance. FNX combines high-level leadership strategy with <strong>human-centric AI execution</strong> to ensure your voice isn't just heard... it’s felt.
+          Most communication today is digital noise. Soulless, repetitive, and easily ignored. To lead in 2026, you don't need a higher volume; you need a deeper resonance. Gain <strong>human-centric AI execution</strong> to ensure your voice isn't just heard... it’s felt.
         </p>
 
         <div class="attention-grid" aria-label="Key outcomes">
@@ -1400,55 +1279,45 @@
         <div>
           <h2>Modern Authority.</h2>
           <p>Your vision shouldn't be limited by your calendar. We provide the world-class authority of a major production house with the speed of AI and zero friction.</p>
+        </div>
         <button class="cta-btn" onclick="document.querySelector('#start').scrollIntoView({behavior:'smooth'});">
           Reserve Your 2026 Vision Session
         </button>
       </div>
     </div>
   </section>
+<!-- TEAM -->
+  <section class="studio-team" id="team">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>THE HUMAN TEAM</h2>
+        <p>Small on purpose. Built for speed, taste, and accountability.</p>
+      </div>
 
-<section id="team" class="humans-section">
-    <div class="container">
-        <h2 style="text-align: center;">THE ARCHITECTS</h2>
-        
-        <div class="team-grid">
-            
-            <div class="team-card">
-                <div class="team-label">Strategy & Soul</div>
-                <div class="team-image-box">
-                    </div>
-                <h3 class="team-name">Maggie Scott</h3>
-                <h4 class="team-title">Visionary & Strategic Advisor</h4>
-                <div class="team-bio">
-                    Maggie ensures the "Why" is never lost in the "How." She acts as the guardian of your brand’s deeper purpose, translating your lifetime of work into a strategic roadmap for 2026.
-                </div>
-            </div>
-
-            <div class="team-card">
-                <div class="team-label">The Bridge</div>
-                <div class="team-image-box">
-                    </div>
-                <h3 class="team-name">Sam Tate</h3>
-                <h4 class="team-title">Lead Creative Technologist</h4>
-                <div class="team-bio">
-                    The bridge between the machine and the message. Sam ensures the AI doesn't just copy your face, but captures your fire. He is the reason our work feels "Riveting" rather than just "Rendered."
-                </div>
-            </div>
-
-            <div class="team-card">
-                <div class="team-label">Flow & Freedom</div>
-                <div class="team-image-box">
-                    </div>
-                <h3 class="team-name">Kelly Marie</h3>
-                <h4 class="team-title">Operations & Experience Lead</h4>
-                <div class="team-bio">
-                    The architect of your freedom. Kelly manages the frictionless delivery of your assets, ensuring that working with FNX is the easiest, most revitalizing part of your week.
-                </div>
-            </div>
-
+      <div class="team-grid">
+        <div class="member">
+          <div class="badge">VISION</div>
+          <div class="headshot">[HEADSHOT]</div>
+          <h3>Maggie Scott</h3>
+          <p>Visionary &amp; Strategic Lead</p>
         </div>
+
+        <div class="member">
+          <div class="badge">BUILD</div>
+          <div class="headshot">[HEADSHOT]</div>
+          <h3>Sam Tate</h3>
+          <p>Lead Creative Technologist</p>
+        </div>
+
+        <div class="member">
+          <div class="badge">EXPERIENCE</div>
+          <div class="headshot">[HEADSHOT]</div>
+          <h3>Kelly Marsh</h3>
+          <p>Head of Operations &amp; Experience</p>
+        </div>
+</div>
     </div>
-</section>
+  </section>
 
   <!-- CONTACT -->
   <section class="contact" id="start">
