@@ -721,7 +721,57 @@
       vertical-align: middle;
     }
 
+/* --- Team Section Styling --- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 50px auto;
+}
 
+.team-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.team-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.team-image-box {
+    width: 100%;
+    aspect-ratio: 4/5; /* Modern editorial portrait ratio */
+    background-color: #1a1a1a;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.team-name {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.team-title {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.team-bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    font-weight: 300;
+}
     /* TEAM (grid) - headshot cards */
     .team-grid{
       display:grid;
@@ -1112,17 +1162,17 @@
           </div>
 
           <h1>
-            The New Standard<br />
-            of <span class="accent">ATTENTION</span>.
+            Unlimited Scale with<br />
+            of <span class="accent">HEART</span>.
           </h1>
 
           <p class="sub">
-            Cinematic Authority for Influential Leaders in the AI Era.
+            Cinematic AI production for leaders who refuse to compromise on quality or soul.
           </p>
 
           <div class="hero-actions">
             <button class="cta-btn" onclick="document.querySelector('#start').scrollIntoView({behavior:'smooth'});">
-              Reserve Your 2026 Strategy Audit
+              Reserve Your 2026 Vision Session
             </button>
             <button class="ghost-btn" onclick="document.querySelector('#work').scrollIntoView({behavior:'smooth'});">
               Experience The Results
@@ -1154,29 +1204,28 @@
   <section class="attention" id="logic">
     <div class="wrap">
       <div class="attention-box">
-        <h2 class="attention-title">ATTENTION IS THE <span class="accent">NEW CURRENCY</span>.</h2>
+        <h2 class="attention-title">YOU, MULTIPLIED.</span>.</h2>
         <p class="attention-copy">
-          Most marketing today is white noise. To be heard in 2026, you don't just need content; you need to be a <strong>step
-          ahead</strong>. FNX combines elite leadership strategy with <strong>AI-accelerated execution to command attention.</strong>
+          Most marketing today is digital noise. Soulless, repetitive, and easily ignored. To lead in 2026, you don't need a higher volume; you need a deeper resonance. FNX combines high-level leadership strategy with <strong>human-centric AI execution</strong> to ensure your voice isn't just heard... it’s felt.
         </p>
 
         <div class="attention-grid" aria-label="Key outcomes">
           <div class="attention-card">
-            <div class="attention-top"><span>CLARITY</span><span class="n">01</span></div>
+            <div class="attention-top"><span>YOUR UNTAMED VOICE</span><span class="n">01</span></div>
             <div class="attention-val">A message people repeat.</div>
-            <p class="attention-sub">Not just “content.” A point of view.</p>
+            <p class="attention-sub">We don’t just "write copy." We distill your unique point of view into a narrative that stops the scroll and starts a movement.</p>
           </div>
 
           <div class="attention-card">
-            <div class="attention-top"><span>AUTHORITY</span><span class="n">02</span></div>
-            <div class="attention-val">A look that signals leadership.</div>
-            <p class="attention-sub">Cinematic, consistent, unmistakable.</p>
+            <div class="attention-top"><span>SIGNATURE PRESENCE</span><span class="n">02</span></div>
+            <div class="attention-val">A look that signals legacy.</div>
+            <p class="attention-sub">AI often looks "cheap." We deliver a cinematic aesthetic that screams leadership, ensuring your digital presence is as authoritative as your physical one.</p>
           </div>
 
           <div class="attention-card">
-            <div class="attention-top"><span>SPEED</span><span class="n">03</span></div>
-            <div class="attention-val">World-class output, faster.</div>
-            <p class="attention-sub">AI-accelerated without losing taste.</p>
+            <div class="attention-top"><span>THE GIFT OF TIME</span><span class="n">03</span></div>
+            <div class="attention-val">Output at the speed of thought.</div>
+            <p class="attention-sub">We use AI to liberate you from the content treadmill. We give you back 100+ hours of your life while expanding your reach exponentially.</p>
           </div>
         </div>
       </div>
@@ -1189,7 +1238,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2><span class="accent">Iconic</span> AI-Execution</h2>
-        <p>Demonstrated mastery in high-level brand storytelling in the AI era.</p>
+        <p>Get your time back without looking like a bad deepfake..</p>
       </div>
 
       <div class="subsection-title">
@@ -1349,55 +1398,63 @@
     <div class="wrap">
       <div class="cta-panel">
         <div>
-          <h2>Where do you start?</h2>
-          <p>Utilizing AI so you don't fall behind can be daunting. But you don't have to go it alone. We're here to help you get clear quickly so you can run faster (<strong>and with less effort</strong>) in 2026.</p>
-        </div>
+          <h2>Get your time back <strong>without</strong> looking like a bad deepfake.</h2>
         <button class="cta-btn" onclick="document.querySelector('#start').scrollIntoView({behavior:'smooth'});">
-          Request Creative Strategy Audit
+          Reserve Your 2026 Vision Session
         </button>
       </div>
     </div>
   </section>
 
-<!-- TEAM -->
-  <section class="studio-team" id="team">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>THE HUMANS</h2>
-        <p>Specialized production unit trained in the highest standards of AI communication.</p>
-      </div>
+<section id="team" class="humans-section">
+    <div class="container">
+        <h2 style="text-align: center;">THE ARCHITECTS</h2>
+        
+        <div class="team-grid">
+            
+            <div class="team-card">
+                <div class="team-label">Strategy & Soul</div>
+                <div class="team-image-box">
+                    </div>
+                <h3 class="team-name">Maggie Scott</h3>
+                <h4 class="team-title">Visionary & Strategic Advisor</h4>
+                <div class="team-bio">
+                    Maggie ensures the "Why" is never lost in the "How." She acts as the guardian of your brand’s deeper purpose, translating your lifetime of work into a strategic roadmap for 2026.
+                </div>
+            </div>
 
-      <div class="team-grid">
-        <div class="member">
-          <div class="badge">EXPERIENCE</div>
-          <div class="headshot">[HEADSHOT]</div>
-          <h3>Kelly Marie</h3>
-          <p>Operations &amp; Experience Lead</p>
-        </div>
+            <div class="team-card">
+                <div class="team-label">The Bridge</div>
+                <div class="team-image-box">
+                    </div>
+                <h3 class="team-name">Sam Tate</h3>
+                <h4 class="team-title">Lead Creative Technologist</h4>
+                <div class="team-bio">
+                    The bridge between the machine and the message. Sam ensures the AI doesn't just copy your face, but captures your fire. He is the reason our work feels "Riveting" rather than just "Rendered."
+                </div>
+            </div>
 
-        <div class="member">
-          <div class="badge">VISION</div>
-          <div class="headshot">[HEADSHOT]</div>
-          <h3>Maggie Scott</h3>
-          <p>Visionary &amp; Strategic Advisor</p>
-        </div>
+            <div class="team-card">
+                <div class="team-label">Flow & Freedom</div>
+                <div class="team-image-box">
+                    </div>
+                <h3 class="team-name">Kelly Marie</h3>
+                <h4 class="team-title">Operations & Experience Lead</h4>
+                <div class="team-bio">
+                    The architect of your freedom. Kelly manages the frictionless delivery of your assets, ensuring that working with FNX is the easiest, most revitalizing part of your week.
+                </div>
+            </div>
 
-        <div class="member">
-          <div class="badge">BUILD</div>
-          <div class="headshot">[HEADSHOT]</div>
-          <h3>Sam Tate</h3>
-          <p>Lead Creative Technologist</p>
         </div>
-</div>
     </div>
-  </section>
+</section>
 
   <!-- CONTACT -->
   <section class="contact" id="start">
     <div class="wrap">
       <div class="section-head">
-        <h2>Request Your 2026 Audit</h2>
-        <p>Currently booking AI fastpasses for 2026. Limited project scheduling available.</p>
+        <h2>Let’s Talk About Your 2026 Vision</h2>
+        <p>Currently booking AI fastpasses for 2026. If you’re ready to scale your authority without losing your soul, let’s start here. (Limited project scheduling available.)</p>
       </div>
 
       <div class="form-card">
@@ -1408,8 +1465,8 @@
           <textarea class="full" placeholder="My primary brand/company goal for 2026 is..." rows="4" required aria-label="Primary brand goal"></textarea>
 
           <div class="form-actions full">
-            <button type="submit" class="cta-btn">Submit Request</button>
-            <div class="fineprint">No spam, ever. If it’s not a fit, you’ll still leave with clarity.</div>
+            <button type="submit" class="cta-btn">Request Your 2026 Vision Session</button>
+            <div class="fineprint">No generic audits. Just clarity on how to reclaim your time and dominate your category.</div>
           </div>
         </form>
       </div>
@@ -1419,7 +1476,7 @@
   <footer>
     <div class="wrap">
       © 2026 FNX STUDIO. ALL RIGHTS RESERVED.
-      <span class="sub">BUILT FOR THOSE SERIOUS ABOUT GETTING AHEAD.</span>
+      <span class="sub">BUILT FOR THOSE SERIOUS ABOUT BEING HEARD IN 2026.</span>
     </div>
   </footer>
 
