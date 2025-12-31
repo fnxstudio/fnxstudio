@@ -39,7 +39,6 @@
       overflow-x: hidden;
     }
 
-    /* subtle noise overlay */
     body::before{
       content:"";
       position: fixed;
@@ -64,7 +63,6 @@
       z-index: 1;
     }
 
-    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -143,15 +141,6 @@
       box-shadow: 0 20px 55px rgba(230,57,70,0.22);
       filter: saturate(1.05);
     }
-    .cta-btn:active{ transform: translateY(0px); }
-    .cta-btn:focus-visible,
-    a:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible{
-      outline: 2px solid rgba(230,57,70,0.65);
-      outline-offset: 3px;
-      border-radius: 12px;
-    }
 
     .menu-btn{
       display:none;
@@ -207,9 +196,7 @@
       text-transform: uppercase;
       letter-spacing: -0.02em;
     }
-    .hero h1 .accent{
-      color: var(--accent);
-    }
+    .hero h1 .accent{ color: var(--accent); }
     .hero p.sub{
       margin: 0 0 24px;
       font-size: clamp(1.05rem, 1.4vw, 1.25rem);
@@ -237,13 +224,7 @@
       cursor: pointer;
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
-    .ghost-btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.18);
-    }
 
-    /* Video placeholder */
     .video-placeholder{
       border-radius: var(--radius2);
       overflow:hidden;
@@ -254,16 +235,7 @@
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
       aspect-ratio: 16 / 9;
-      min-height: 260px;
-    }
-    .video-placeholder::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px) 0 0 / 48px 48px,
-        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 48px 48px;
-      opacity: 0.22;
-      pointer-events:none;
+      width: 100%; /* FIX: Ensures it doesn't overflow container */
     }
     .video-center{
       position:absolute;
@@ -277,47 +249,12 @@
       text-align:center;
     }
     .play{
-      width: 68px;
-      height: 68px;
+      width: 68px; height: 68px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.20);
       background: rgba(0,0,0,0.35);
       display:grid;
       place-items:center;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.45);
-    }
-    .play svg{ opacity: 0.92; }
-    .video-label{
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-size: 0.86rem;
-      color: rgba(255,255,255,0.86);
-    }
-    .video-note{
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.55);
-      max-width: 40ch;
-    }
-    .video-tag{
-      margin-top: 2px;
-      display:inline-flex;
-      gap: 8px;
-      align-items:center;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.75);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-    .video-tag .red{
-      width: 8px; height: 8px; border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 8px rgba(230,57,70,0.14);
     }
 
     /* SECTION BASE */
@@ -332,23 +269,11 @@
     .section-head h2{
       margin: 0 0 10px;
       font-size: clamp(1.7rem, 2.6vw, 3rem);
-      letter-spacing: -0.02em;
       text-transform: uppercase;
       font-weight: 900;
     }
-    .section-head p{
-      margin: 0 auto;
-      max-width: 78ch;
-      color: rgba(255,255,255,0.68);
-      font-size: 1.05rem;
-    }
-
 
     /* ATTENTION BOX */
-    .attention{
-      padding: 66px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
     .attention-box{
       border: 1px solid rgba(255,255,255,0.10);
       background:
@@ -357,22 +282,7 @@
       border-radius: 26px;
       padding: 28px;
       box-shadow: 0 26px 80px rgba(0,0,0,0.55);
-      overflow:hidden;
     }
-    .attention-title{
-      margin: 0 0 10px;
-      font-size: clamp(1.8rem, 3.2vw, 3.1rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-    }
-    .attention-copy{
-      margin: 0 0 18px;
-      color: rgba(255,255,255,0.78);
-      font-size: 1.05rem;
-      max-width: 86ch;
-    }
-    .attention-copy strong{ color: rgba(255,255,255,0.95); }
     .attention-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -384,163 +294,9 @@
       background: rgba(0,0,0,0.22);
       border-radius: 18px;
       padding: 16px;
-      position: relative;
-      overflow:hidden;
-    }
-    .attention-card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 42px 42px,
-        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 42px 42px;
-      opacity: 0.10;
-      pointer-events:none;
-    }
-    .attention-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 900;
-      font-size: 0.74rem;
-      color: rgba(255,255,255,0.68);
-      position: relative;
-      z-index: 1;
-    }
-    .attention-top .n{
-      color: rgba(255,255,255,0.58);
-      font-weight: 900;
-    }
-    .attention-val{
-      position: relative;
-      z-index: 1;
-      font-weight: 900;
-      font-size: 1.14rem;
-      letter-spacing: -0.02em;
-      color: rgba(255,255,255,0.96);
-      margin-bottom: 6px;
-    }
-    .attention-sub{
-      position: relative;
-      z-index: 1;
-      color: rgba(255,255,255,0.56);
-      font-size: 0.95rem;
-      margin: 0;
-    }
-    
-    /* LOGIC */
-    .logic{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
-    }
-    .logic-card{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: var(--radius2);
-      padding: 28px;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.35);
-      position: relative;
-      overflow:hidden;
-    }
-    .logic-card::after{
-      content:"";
-      position:absolute;
-      right: -120px;
-      top: -120px;
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle, rgba(230,57,70,0.22), transparent 60%);
-      opacity: 0.7;
-      pointer-events:none;
-    }
-    .logic-card h2{
-      margin: 0 0 12px;
-      font-size: clamp(1.6rem, 2.4vw, 2.6rem);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-    }
-    .logic-card p{
-      margin: 0;
-      color: rgba(255,255,255,0.78);
-      font-size: 1.08rem;
-      max-width: 78ch;
-    }
-    
-    .logic-card strong{ color: rgba(255,255,255,0.95); }
-
-    .logic-metrics{
-      margin-top: 20px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .metric{
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.22);
-      border-radius: 16px;
-      padding: 14px 14px;
-    }
-    .metric .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      margin-bottom: 6px;
-      color: rgba(255,255,255,0.72);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.72rem;
-      font-weight: 800;
-    }
-    .metric .val{
-      font-weight: 900;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-      color: rgba(255,255,255,0.96);
-    }
-    .metric .sub{
-      color: rgba(255,255,255,0.55);
-      font-size: 0.92rem;
-      margin-top: 4px;
     }
 
-
-    /* WORK (Cinematic Motion + Static Excellence) */
-    .work .section-head h2{ color: rgba(255,255,255,0.95); }
-    .subsection-title{
-      margin: 0 0 14px;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.80);
-      font-weight: 900;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-    }
-    .subsection-title .rule{
-      flex: 1;
-      height: 1px;
-      background: rgba(255,255,255,0.10);
-    }
-    .subsection-title .label{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-    }
-    .subsection-title .icon{
-      width: 18px;
-      height: 18px;
-      display:inline-block;
-      opacity: 0.9;
-      color: rgba(255,255,255,0.78);
-    }
-
+    /* WORK */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -551,59 +307,20 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
       border-radius: var(--radius);
       padding: 16px;
-      overflow:hidden;
-      box-shadow: 0 20px 55px rgba(0,0,0,0.35);
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-    .card:hover{
-      transform: translateY(-3px);
-      border-color: rgba(230,57,70,0.35);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
     }
     .visual{
       width:100%;
       aspect-ratio: 16 / 9;
       border-radius: 14px;
-      background:
-        radial-gradient(900px 500px at 30% 20%, rgba(230,57,70,0.18), transparent 55%),
-        rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.12);
       display:flex;
       align-items:center;
       justify-content:center;
-      color: rgba(255,255,255,0.72);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 900;
-      font-size: 0.78rem;
-      position: relative;
-      overflow:hidden;
       margin-bottom: 14px;
     }
-    .visual::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px) 0 0 / 58px 58px,
-        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 58px 58px;
-      opacity: 0.16;
-      pointer-events:none;
-    }
-    .card h4{
-      margin: 0 0 8px;
-      font-size: 1.02rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-weight: 900;
-      color: rgba(255,255,255,0.92);
-    }
-    .card h4 .accent{
-      color: var(--accent);
-    }
     .bullets{
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       list-style: none;
       display:flex;
       flex-direction: column;
@@ -611,318 +328,8 @@
       color: rgba(255,255,255,0.70);
       font-size: 0.98rem;
     }
-    .bullets li{
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-    }
-    .bullets li span{
-      color: rgba(255,255,255,0.50);
-      font-weight: 900;
-    }
 
-    /* METHOD */
-    .method{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-    }
-    .method-container{
-      display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      align-items:start;
-    }
-    .method-card{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: var(--radius2);
-      padding: 22px;
-      box-shadow: 0 26px 70px rgba(0,0,0,0.35);
-    }
-    .method-card h2{
-      margin: 0 0 10px;
-      font-size: clamp(1.6rem, 2.2vw, 2.4rem);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-    }
-    .method-card p{
-      margin: 0;
-      color: rgba(255,255,255,0.74);
-      font-size: 1.03rem;
-    }
-    .team-box{
-      margin-top: 16px;
-      border-radius: 18px;
-      padding: 18px;
-      border: 1px solid rgba(230,57,70,0.22);
-      background: linear-gradient(180deg, rgba(230,57,70,0.08), rgba(255,255,255,0.03));
-      position: relative;
-      overflow:hidden;
-    }
-    .team-box::before{
-      content:"";
-      position:absolute;
-      left:-90px;
-      bottom:-90px;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(230,57,70,0.24), transparent 60%);
-      opacity: 0.7;
-      pointer-events:none;
-    }
-    .team-box h4{
-      margin: 0 0 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.8rem;
-      font-weight: 900;
-      color: rgba(255,255,255,0.86);
-    }
-    .team-box p{
-      margin: 6px 0;
-      color: rgba(255,255,255,0.78);
-    }
-    .team-box small{
-      display:block;
-      margin-top: 10px;
-      color: rgba(255,255,255,0.58);
-      font-size: 0.92rem;
-      line-height: 1.5;
-    }
-
-    .method-list{
-      list-style:none;
-      margin: 0;
-      padding: 0;
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-    }
-    .method-list li{
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.22);
-      border-radius: 18px;
-      padding: 14px 14px;
-      font-size: 1.02rem;
-      color: rgba(255,255,255,0.78);
-    }
-    .method-list .tag{
-      display:inline-block;
-      margin-right: 10px;
-      color: rgba(255,255,255,0.85);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 900;
-      font-size: 0.78rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(230,57,70,0.25);
-      background: rgba(230,57,70,0.10);
-      vertical-align: middle;
-    }
-
-    /* TEAM (grid) */
-    .studio-team{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-    }
-    .team-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .member{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: var(--radius2);
-      padding: 18px;
-      text-align:center;
-      box-shadow: 0 22px 62px rgba(0,0,0,0.33);
-    }
-    .member .badge{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.24);
-      color: rgba(255,255,255,0.74);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 900;
-      font-size: 0.72rem;
-      margin-bottom: 12px;
-    }
-    .member h3{
-      margin: 0 0 6px;
-      font-size: 1.28rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-    }
-    .member p{
-      margin: 0;
-      color: rgba(230,57,70,0.92);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.10em;
-      font-size: 0.78rem;
-    }
-
-    /* CTA BAND */
-    .cta-band{
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 66px 0 70px;
-    }
-    .cta-panel{
-      border: 1px solid rgba(230,57,70,0.22);
-      background: linear-gradient(180deg, rgba(230,57,70,0.10), rgba(255,255,255,0.03));
-      border-radius: var(--radius2);
-      padding: 26px;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.35);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-    .cta-panel h2{
-      margin: 0;
-      font-size: clamp(1.4rem, 2.1vw, 2rem);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-    }
-    .cta-panel p{
-      margin: 6px 0 0;
-      color: rgba(255,255,255,0.70);
-      max-width: 62ch;
-    }
-
-    /* CONTACT */
-    .contact{
-      padding-bottom: 84px;
-    }
-    .form-card{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      border-radius: var(--radius2);
-      padding: 22px;
-      box-shadow: 0 26px 70px rgba(0,0,0,0.35);
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    form{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-    form .full{ grid-column: 1 / -1; }
-    input, textarea{
-      width: 100%;
-      padding: 14px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.30);
-      color: rgba(255,255,255,0.90);
-      font-size: 1rem;
-      transition: border-color 160ms ease, background 160ms ease;
-    }
-    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,0.40); }
-    input:focus, textarea:focus{
-      border-color: rgba(230,57,70,0.45);
-      background: rgba(0,0,0,0.36);
-      outline: none;
-    }
-    .form-actions{
-      display:flex;
-      gap: 12px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      margin-top: 6px;
-    }
-    .fineprint{
-      color: rgba(255,255,255,0.52);
-      font-size: 0.9rem;
-    }
-
-    /* FOOTER */
-    footer{
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 26px 0 40px;
-      text-align:center;
-      color: rgba(255,255,255,0.45);
-      font-size: 0.82rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-    footer .sub{
-      display:block;
-      margin-top: 10px;
-      letter-spacing: 0.10em;
-      color: rgba(255,255,255,0.40);
-    }
-
-    /* Responsive */
-    @media (max-width: 1040px){
-      .grid{ grid-template-columns: repeat(2, 1fr); }
-    }
-@media (max-width: 720px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-
-@media (max-width: 920px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .method-container{ grid-template-columns: 1fr; }
-      .team-grid{ grid-template-columns: 1fr; }
-    }
-    @media (max-width: 840px){
-      .nav-links{ display:none; }
-      .menu-btn{ display:inline-flex; align-items:center; gap:10px; }
-      .mobile-drawer{
-        display:none;
-        border-top: 1px solid rgba(255,255,255,0.10);
-        padding: 10px 0 14px;
-      }
-      .mobile-drawer a{
-        display:block;
-        padding: 10px 0;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.10em;
-        font-size: 0.86rem;
-        color: rgba(255,255,255,0.82);
-      }
-      .mobile-drawer .cta-btn{
-        width: 100%;
-        margin-top: 8px;
-        padding: 14px 16px;
-      }
-      .attention-grid{ grid-template-columns: 1fr; }
-      form{ grid-template-columns: 1fr; }
-    }
-    @media (prefers-reduced-motion: reduce){
-      * { transition: none !important; scroll-behavior: auto !important; }
-    }
-  
-    /* ICON OVERRIDES (video/photo) */
-    .subsection-title .icon{
-      width: 22px;
-      height: 22px;
-      color: var(--accent);
-      opacity: 1;
-      flex: 0 0 auto;
-    }
-    .subsection-title .label{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-    }
-
-
-    /* TEAM OVERRIDES (match reference layout) */
+    /* TEAM (General styles) */
     .team-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -934,69 +341,132 @@
       border-radius: var(--radius2);
       padding: 22px 18px 20px;
       text-align: center;
-      box-shadow: 0 22px 62px rgba(0,0,0,0.33);
-    }
-    .member .badge{
-      position: static;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(0,0,0,0.22);
-      color: rgba(255,255,255,0.80);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 900;
-      font-size: 0.72rem;
-      margin: 0 auto 14px;
-      backdrop-filter: blur(10px);
     }
     .headshot{
-      width: 108px;
-      height: 108px;
+      width: 108px; height: 108px;
       border-radius: 999px;
       margin: 0 auto 14px;
       border: 1px solid rgba(255,255,255,0.16);
-      background:
-        radial-gradient(120px 120px at 30% 30%, rgba(230,57,70,0.18), transparent 55%),
-        linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
       display:grid;
       place-items:center;
-      color: rgba(255,255,255,0.55);
-      font-weight: 900;
-      letter-spacing: 0.14em;
+    }
+
+    /* CTA PANEL */
+    .cta-panel{
+      border: 1px solid rgba(230,57,70,0.22);
+      background: linear-gradient(180deg, rgba(230,57,70,0.10), rgba(255,255,255,0.03));
+      border-radius: var(--radius2);
+      padding: 26px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* CONTACT FORM */
+    .form-card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: var(--radius2);
+      padding: 22px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    form .full{ grid-column: 1 / -1; }
+    input, textarea{
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.30);
+      color: #fff;
+    }
+
+    /* FOOTER */
+    footer{
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 26px 0 40px;
+      text-align:center;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.82rem;
       text-transform: uppercase;
-      font-size: 0.72rem;
-      overflow:hidden;
-      position: relative;
     }
-    .headshot::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 26px 26px,
-        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 26px 26px;
-      opacity: 0.10;
-      pointer-events:none;
+
+    /* ------------------------------------------------------------------
+       RESPONSIVE OVERRIDES (MOBILE FIXES)
+    ------------------------------------------------------------------ */
+
+    @media (max-width: 1040px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
     }
-    .member h3{
-      margin: 0 0 8px;
-      font-size: 1.22rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
+
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      /* FIX 1: Ensure Team Grids stack */
+      .team-grid { grid-template-columns: 1fr !important; }
+      .attention-grid { grid-template-columns: 1fr; }
     }
-    .member p{
-      margin: 0;
-      color: rgba(230,57,70,0.92);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.10em;
-      font-size: 0.78rem;
+
+    @media (max-width: 840px){
+      /* FIX 2: Reduce top padding to close gap with sticky nav */
+      header.hero { padding: 30px 0 40px; }
+      
+      .nav-links{ display:none; }
+      .menu-btn{ display:inline-flex; align-items:center; gap:10px; }
+      
+      .mobile-drawer{
+        border-top: 1px solid rgba(255,255,255,0.10);
+        padding: 10px 0 14px;
+      }
+      .mobile-drawer a{
+        display:block;
+        padding: 10px 0;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.86rem;
+      }
+      form{ grid-template-columns: 1fr; }
     }
+
+    @media (max-width: 720px){
+      .grid{ grid-template-columns: 1fr; }
+      /* FIX 3: Ensure video placeholder respects mobile width */
+      .video-placeholder { min-height: auto; }
+    }
+
+    /* ICON OVERRIDES */
+    .subsection-title .icon{ width: 22px; height: 22px; color: var(--accent); flex: 0 0 auto; }
+    .subsection-title .label{ display:inline-flex; align-items:center; gap: 10px; }
+    .subsection-title{
+      margin: 0 0 14px; font-size: 1.1rem; text-transform: uppercase;
+      font-weight: 900; display:flex; align-items:center; justify-content:space-between; gap: 12px;
+    }
+    .subsection-title .rule{ flex: 1; height: 1px; background: rgba(255,255,255,0.10); }
+
+    /* MOVE TEAM OVERRIDES INTO DESKTOP-ONLY QUERY 
+       This prevents them from overriding the 1-column mobile layout */
+    @media (min-width: 921px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .member .badge{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.22); color: rgba(255,255,255,0.80);
+      text-transform: uppercase; font-size: 0.72rem; margin: 0 auto 14px;
+      backdrop-filter: blur(10px);
+    }
+    .member h3{ margin: 0 0 8px; font-size: 1.22rem; font-weight: 900; text-transform: uppercase; }
+    .member p{ margin: 0; color: var(--accent); font-weight: 900; text-transform: uppercase; font-size: 0.78rem; }
 
   </style>
 </head>
@@ -1009,20 +479,18 @@
           FNX STUDIO<span class="dot" aria-hidden="true"></span>
         </div>
 
-        <div class="nav-links" aria-label="Primary navigation">
+        <div class="nav-links">
           <a href="#work">THE WORK</a>
           <a href="#team">THE TEAM</a>
           <a href="#start">START HERE</a>
         </div>
 
-        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileDrawer">
-          <span></span>
-          <span aria-hidden="true">☰</span>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false">
+          <span aria-hidden="true">☰ MENU</span>
         </button>
       </div>
 
-      <!-- Mobile drawer -->
-      <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation">
+      <div class="mobile-drawer" id="mobileDrawer">
         <a href="#work">THE WORK</a>
         <a href="#team">THE HUMANS</a>
         <a href="#start">START HERE</a>
@@ -1030,7 +498,6 @@
     </div>
   </nav>
 
-  <!-- HERO (single primary CTA here; not duplicated in nav) -->
   <header class="hero">
     <div class="wrap">
       <div class="hero-grid">
@@ -1039,16 +506,8 @@
             <span class="pill">FNX</span>
             <span>Vision. Influence. Execution.</span>
           </div>
-
-          <h1>
-            Infinite Scale. Undeniable<br />
-            <span class="accent">HEART</span>.
-          </h1>
-
-          <p class="sub">
-            Cinematic AI production for leaders who refuse to compromise on taste.
-          </p>
-
+          <h1>Infinite Scale. Undeniable <span class="accent">HEART</span>.</h1>
+          <p class="sub">Cinematic AI production for leaders who refuse to compromise on taste.</p>
           <div class="hero-actions">
             <button class="cta-btn" onclick="document.querySelector('#start').scrollIntoView({behavior:'smooth'});">
               Reserve Your 2026 Vision Session
@@ -1059,284 +518,100 @@
           </div>
         </div>
 
-        <!-- Hero Trailer placeholder -->
-        <div class="video-placeholder" role="img" aria-label="Trailer placeholder">
-          <!-- Replace with YouTube iframe when ready -->
+        <div class="video-placeholder">
           <div class="video-center">
-            <div class="play" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M9 7.5v9l8-4.5-8-4.5Z" fill="white"/>
-              </svg>
+            <div class="play">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 7.5v9l8-4.5-8-4.5Z" fill="white"/></svg>
             </div>
-            <div class="video-label">Trailer</div>
-            <div class="video-note">YouTube embed placeholder (hero trailer)</div>
-            <div class="video-tag"><span class="red" aria-hidden="true"></span> Placeholder</div>
+            <div style="font-weight:900; text-transform:uppercase; font-size:0.86rem;">Trailer</div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- LOGIC -->
-  
-  <!-- ATTENTION -->
-  <section class="attention" id="logic">
-    <div class="wrap">
-      <div class="attention-box">
-        <h2 class="attention-title">YOU, MULTIPLIED.</h2>
-        <p class="attention-copy">
-          Most communication today is just digital noise. Soulless, repetitive, and easily ignored. To lead in 2026, you don't need a higher volume; you need a deeper resonance. Human-centric AI execution will ensure your voice isn't just heard around the world... <strong>it’s felt</strong>.
-        </p>
-
-        <div class="attention-grid" aria-label="Key outcomes">
-          <div class="attention-card">
-            <div class="attention-top"><span>YOUR UNTAMED VOICE</span><span class="n">01</span></div>
-            <div class="attention-val">A message people repeat.</div>
-            <p class="attention-sub">We don’t just "do AI." We distill your unique point of view into a narrative that stops the scroll and starts a movement.</p>
-          </div>
-
-          <div class="attention-card">
-            <div class="attention-top"><span>SIGNATURE PRESENCE</span><span class="n">02</span></div>
-            <div class="attention-val">A look that signals legacy.</div>
-            <p class="attention-sub">AI often looks "cheap." We deliver a cinematic aesthetic that ensures your digital presence captivates audiences.</p>
-          </div>
-
-          <div class="attention-card">
-            <div class="attention-top"><span>THE GIFT OF TIME</span><span class="n">03</span></div>
-            <div class="attention-val">Output at the speed of thought.</div>
-            <p class="attention-sub">We use AI to liberate you from the content treadmill, giving you back days of your life while expanding your reach exponentially.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- WORK -->
-  <section class="work" id="work">
+  <section id="work" class="work">
     <div class="wrap">
       <div class="section-head">
         <h2><span class="accent">Iconic</span> AI-Execution</h2>
         <p>Get your time back without looking like a bad deepfake.</p>
       </div>
-
+      
       <div class="subsection-title">
-        <span class="label">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4.5 8.5h15v9.5A2 2 0 0 1 17.5 20h-11A2 2 0 0 1 4.5 18V8.5Z" stroke="currentColor" stroke-width="1.6" opacity=".9"/>
-            <path d="M4.8 8.2 6.6 4.5h3.2L8 8.2H4.8Z" fill="currentColor" opacity=".9"/>
-            <path d="M9.6 8.2 11.4 4.5h3.2L12.8 8.2H9.6Z" fill="currentColor" opacity=".78"/>
-            <path d="M14.4 8.2 16.2 4.5h3.0l-1.8 3.7h-3.0Z" fill="currentColor" opacity=".66"/>
-            <path d="M4.5 8.5h15" stroke="currentColor" stroke-width="1.6" opacity=".9"/>
-          </svg>
-          <span>Cinematic AI Motion</span>
-        </span>
-        <span class="rule" aria-hidden="true"></span>
+        <span class="label"><span>Cinematic AI Motion</span></span>
+        <span class="rule"></span>
       </div>
 
-      <div class="grid" style="margin-bottom: 22px;">
+      <div class="grid">
         <article class="card">
           <div class="visual">[VIDEO]</div>
           <h4>The Emotional Response</h4>
           <ul class="bullets">
             <li><span>•</span> Human-centric storytelling</li>
             <li><span>•</span> High-conversion emotional hooks</li>
-            <li><span>•</span> Direct response narrative structure</li>
           </ul>
         </article>
-
         <article class="card">
           <div class="visual">[VIDEO]</div>
           <h4>The Digital Twin</h4>
           <ul class="bullets">
             <li><span>•</span> AI-generated brand leaders</li>
-            <li><span>•</span> Infinite scale, zero filming days</li>
-            <li><span>•</span> Total visual consistency</li>
+            <li><span>•</span> Infinite scale, zero filming</li>
           </ul>
         </article>
-
         <article class="card">
           <div class="visual">[VIDEO]</div>
           <h4>The Visionary Manifesto</h4>
           <ul class="bullets">
-            <li><span>•</span> High-concept brand trailers</li>
+            <li><span>•</span> High-concept trailers</li>
             <li><span>•</span> Metaphorical storytelling</li>
-            <li><span>•</span> Instant industry authority</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="visual">[VIDEO]</div>
-          <h4>The Event Accelerator</h4>
-          <ul class="bullets">
-            <li><span>•</span> High-energy promo cuts</li>
-            <li><span>•</span> Urgency + attendance lift</li>
-            <li><span>•</span> Built for social + ads</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="visual">[VIDEO]</div>
-          <h4>The Persuasion Narrative</h4>
-          <ul class="bullets">
-            <li><span>•</span> Complex frameworks → watchable</li>
-            <li><span>•</span> Story-driven explanation</li>
-            <li><span>•</span> “Must-watch” authority</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="visual">[VIDEO]</div>
-          <h4>The Brand Mission</h4>
-          <ul class="bullets">
-            <li><span>•</span> Movement-level positioning</li>
-            <li><span>•</span> Signature visual language</li>
-            <li><span>•</span> Definitive category presence</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="subsection-title" style="margin-top: 10px;">
-        <span class="label">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M7.5 7.5 9 5.5h6l1.5 2h2A2.5 2.5 0 0 1 21 10v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 17v-7A2.5 2.5 0 0 1 5.5 7.5h2Z" stroke="currentColor" stroke-width="1.6" opacity=".9"/>
-            <path d="M12 17a3.2 3.2 0 1 0 0-6.4A3.2 3.2 0 0 0 12 17Z" stroke="currentColor" stroke-width="1.6" opacity=".9"/>
-            <path d="M17.8 11.2h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-          </svg>
-          <span>Photo-realistic AI Shoots</span>
-        </span>
-        <span class="rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <div class="visual">[IMAGE]</div>
-          <h4>Editorial Portraits</h4>
-          <ul class="bullets">
-            <li><span>•</span> One reference photo required</li>
-            <li><span>•</span> Studio-quality environments</li>
-            <li><span>•</span> 100% leader-time savings</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="visual">[IMAGE]</div>
-          <h4>Lifestyle Integration</h4>
-          <ul class="bullets">
-            <li><span>•</span> Global stages &amp; boardrooms</li>
-            <li><span>•</span> Zero travel or logistics</li>
-            <li><span>•</span> 2026 brand positioning today</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="visual">[IMAGE]</div>
-          <h4>Virtual Product Suites</h4>
-          <ul class="bullets">
-            <li><span>•</span> High-architectural settings</li>
-            <li><span>•</span> 8K render quality</li>
-            <li><span>•</span> No physical production crew</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="visual">[IMAGE]</div>
-          <h4>Campaign Key Art</h4>
-          <ul class="bullets">
-            <li><span>•</span> Thumb-stopping visuals</li>
-            <li><span>•</span> Consistent brand aesthetic</li>
-            <li><span>•</span> Ready for ads + landing</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="visual">[IMAGE]</div>
-          <h4>Product Hero Renders</h4>
-          <ul class="bullets">
-            <li><span>•</span> Premium product staging</li>
-            <li><span>•</span> No shoot days</li>
-            <li><span>•</span> Fast iteration</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="visual">[IMAGE]</div>
-          <h4>Executive Brand Library</h4>
-          <ul class="bullets">
-            <li><span>•</span> Modular asset system</li>
-            <li><span>•</span> Always-on consistency</li>
-            <li><span>•</span> Scales across channels</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- CTA BAND -->
-  <section class="cta-band" aria-label="Primary call to action">
-    <div class="wrap">
-      <div class="cta-panel">
-        <div>
-          <h2>Modern Authority.</h2>
-          <p>Your vision shouldn't be limited by your calendar. We provide the world-class authority of a major production house with the speed of AI and zero friction.</p>
-        </div>
-        <button class="cta-btn" onclick="document.querySelector('#start').scrollIntoView({behavior:'smooth'});">
-          Reserve Your 2026 Vision Session
-        </button>
-      </div>
-    </div>
-  </section>
-<!-- TEAM -->
   <section class="studio-team" id="team">
     <div class="wrap">
       <div class="section-head">
         <h2>THE ARCHITECTS</h2>
-        <p>Specialized humans who believe technology is only as good as the heart guiding it.</p>
       </div>
-
       <div class="team-grid">
         <div class="member">
           <div class="badge">EXPERIENCE</div>
-          <div class="headshot">[HEADSHOT]</div>
+          <div class="headshot">KM</div>
           <h3>Kelli Marsh</h3>
-          <p>Operations &amp; Flow</p>
+          <p>Operations & Flow</p>
         </div>
-
         <div class="member">
           <div class="badge">VISION</div>
-          <div class="headshot">[HEADSHOT]</div>
+          <div class="headshot">MS</div>
           <h3>Maggie Scott</h3>
-          <p>Strategy &amp; Purpose</p>
+          <p>Strategy & Purpose</p>
         </div>
-
         <div class="member">
           <div class="badge">BUILD</div>
-          <div class="headshot">[HEADSHOT]</div>
+          <div class="headshot">ST</div>
           <h3>Sam Tate</h3>
           <p>Creative Technologist</p>
         </div>
-</div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="contact" id="start">
     <div class="wrap">
       <div class="section-head">
         <h2>Let’s Talk About Your 2026 Vision</h2>
-        <p>If your 2026 goals need you to scale your authority without losing your soul, the time to start is now. *Limited project scheduling available.</p>
       </div>
-
       <div class="form-card">
-        <form id="contactForm" action="#" method="post">
-          <input type="text" placeholder="Name" required aria-label="Name" />
-          <input type="text" placeholder="Company Name" required aria-label="Company Name" />
-          <input class="full" type="email" placeholder="Email" required aria-label="Email" />
-          <textarea class="full" placeholder="My primary brand/company goal for 2026 is..." rows="4" required aria-label="Primary brand goal"></textarea>
-
+        <form id="contactForm">
+          <input type="text" placeholder="Name" required />
+          <input type="text" placeholder="Company Name" required />
+          <input class="full" type="email" placeholder="Email" required />
+          <textarea class="full" placeholder="Goal for 2026..." rows="4" required></textarea>
           <div class="form-actions full">
             <button type="submit" class="cta-btn">Request My Session Today</button>
-            <div class="fineprint">No generic audits. Just clarity on how to reclaim your time and dominate your category.</div>
           </div>
         </form>
       </div>
@@ -1344,14 +619,10 @@
   </section>
 
   <footer>
-    <div class="wrap">
-      © 2026 FNX STUDIO. ALL RIGHTS RESERVED.
-      <span class="sub">BUILT FOR THOSE SERIOUS ABOUT BEING HEARD IN 2026.</span>
-    </div>
+    <div class="wrap">© 2026 FNX STUDIO. ALL RIGHTS RESERVED.</div>
   </footer>
 
   <script>
-    // Simple mobile menu toggle + close on link click
     const btn = document.getElementById('menuBtn');
     const drawer = document.getElementById('mobileDrawer');
 
@@ -1361,17 +632,11 @@
       drawer.style.display = open ? 'none' : 'block';
     });
 
-    drawer?.querySelectorAll('a, button').forEach(el => {
+    drawer?.querySelectorAll('a').forEach(el => {
       el.addEventListener('click', () => {
         btn.setAttribute('aria-expanded', 'false');
         drawer.style.display = 'none';
       });
-    });
-
-    // Prevent default submit (replace with your backend / form handler)
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Form submitted (placeholder). Connect this to your form handler when ready.');
     });
   </script>
 </body>
