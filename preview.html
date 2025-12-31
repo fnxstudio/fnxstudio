@@ -63,6 +63,7 @@
       z-index: 1;
     }
 
+    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -141,6 +142,15 @@
       box-shadow: 0 20px 55px rgba(230,57,70,0.22);
       filter: saturate(1.05);
     }
+    .cta-btn:active{ transform: translateY(0px); }
+    .cta-btn:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible{
+      outline: 2px solid rgba(230,57,70,0.65);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
 
     .menu-btn{
       display:none;
@@ -196,7 +206,9 @@
       text-transform: uppercase;
       letter-spacing: -0.02em;
     }
-    .hero h1 .accent{ color: var(--accent); }
+    .hero h1 .accent{
+      color: var(--accent);
+    }
     .hero p.sub{
       margin: 0 0 24px;
       font-size: clamp(1.05rem, 1.4vw, 1.25rem);
@@ -224,7 +236,13 @@
       cursor: pointer;
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
+    .ghost-btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.18);
+    }
 
+    /* Video placeholder */
     .video-placeholder{
       border-radius: var(--radius2);
       overflow:hidden;
@@ -235,7 +253,16 @@
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
       aspect-ratio: 16 / 9;
-      width: 100%; /* FIX: Ensures it doesn't overflow container */
+      width: 100%; /* Responsive Fix */
+    }
+    .video-placeholder::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px) 0 0 / 48px 48px,
+        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 48px 48px;
+      opacity: 0.22;
+      pointer-events:none;
     }
     .video-center{
       position:absolute;
@@ -249,12 +276,47 @@
       text-align:center;
     }
     .play{
-      width: 68px; height: 68px;
+      width: 68px;
+      height: 68px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.20);
       background: rgba(0,0,0,0.35);
       display:grid;
       place-items:center;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+    }
+    .play svg{ opacity: 0.92; }
+    .video-label{
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.86);
+    }
+    .video-note{
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 40ch;
+    }
+    .video-tag{
+      margin-top: 2px;
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .video-tag .red{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(230,57,70,0.14);
     }
 
     /* SECTION BASE */
@@ -269,11 +331,23 @@
     .section-head h2{
       margin: 0 0 10px;
       font-size: clamp(1.7rem, 2.6vw, 3rem);
+      letter-spacing: -0.02em;
       text-transform: uppercase;
       font-weight: 900;
     }
+    .section-head p{
+      margin: 0 auto;
+      max-width: 78ch;
+      color: rgba(255,255,255,0.68);
+      font-size: 1.05rem;
+    }
+
 
     /* ATTENTION BOX */
+    .attention{
+      padding: 66px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
     .attention-box{
       border: 1px solid rgba(255,255,255,0.10);
       background:
@@ -282,7 +356,22 @@
       border-radius: 26px;
       padding: 28px;
       box-shadow: 0 26px 80px rgba(0,0,0,0.55);
+      overflow:hidden;
     }
+    .attention-title{
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3.2vw, 3.1rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    .attention-copy{
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+      max-width: 86ch;
+    }
+    .attention-copy strong{ color: rgba(255,255,255,0.95); }
     .attention-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -294,9 +383,86 @@
       background: rgba(0,0,0,0.22);
       border-radius: 18px;
       padding: 16px;
+      position: relative;
+      overflow:hidden;
+    }
+    .attention-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 42px 42px,
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 42px 42px;
+      opacity: 0.10;
+      pointer-events:none;
+    }
+    .attention-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 900;
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.68);
+      position: relative;
+      z-index: 1;
+    }
+    .attention-top .n{
+      color: rgba(255,255,255,0.58);
+      font-weight: 900;
+    }
+    .attention-val{
+      position: relative;
+      z-index: 1;
+      font-weight: 900;
+      font-size: 1.14rem;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.96);
+      margin-bottom: 6px;
+    }
+    .attention-sub{
+      position: relative;
+      z-index: 1;
+      color: rgba(255,255,255,0.56);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    
+    /* WORK */
+    .work .section-head h2{ color: rgba(255,255,255,0.95); }
+    .subsection-title{
+      margin: 0 0 14px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.80);
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .subsection-title .rule{
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.10);
+    }
+    .subsection-title .label{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .subsection-title .icon{
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+      opacity: 1;
+      flex: 0 0 auto;
     }
 
-    /* WORK */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -307,20 +473,56 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
       border-radius: var(--radius);
       padding: 16px;
+      overflow:hidden;
+      box-shadow: 0 20px 55px rgba(0,0,0,0.35);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(230,57,70,0.35);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
     }
     .visual{
       width:100%;
       aspect-ratio: 16 / 9;
       border-radius: 14px;
-      background: rgba(0,0,0,0.35);
+      background:
+        radial-gradient(900px 500px at 30% 20%, rgba(230,57,70,0.18), transparent 55%),
+        rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.12);
       display:flex;
       align-items:center;
       justify-content:center;
+      color: rgba(255,255,255,0.72);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 900;
+      font-size: 0.78rem;
+      position: relative;
+      overflow:hidden;
       margin-bottom: 14px;
     }
+    .visual::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px) 0 0 / 58px 58px,
+        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px) 0 0 / 58px 58px;
+      opacity: 0.16;
+      pointer-events:none;
+    }
+    .card h4{
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 900;
+      color: rgba(255,255,255,0.92);
+    }
     .bullets{
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       list-style: none;
       display:flex;
       flex-direction: column;
@@ -328,11 +530,23 @@
       color: rgba(255,255,255,0.70);
       font-size: 0.98rem;
     }
+    .bullets li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .bullets li span{
+      color: rgba(255,255,255,0.50);
+      font-weight: 900;
+    }
 
-    /* TEAM (General styles) */
+    /* TEAM (general) */
+    .studio-team{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    }
     .team-grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr; /* Stacks by default */
       gap: 18px;
     }
     .member{
@@ -341,6 +555,23 @@
       border-radius: var(--radius2);
       padding: 22px 18px 20px;
       text-align: center;
+      box-shadow: 0 22px 62px rgba(0,0,0,0.33);
+    }
+    .member .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,255,255,0.80);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 900;
+      font-size: 0.72rem;
+      margin: 0 auto 14px;
+      backdrop-filter: blur(10px);
     }
     .headshot{
       width: 108px; height: 108px;
@@ -348,60 +579,77 @@
       margin: 0 auto 14px;
       border: 1px solid rgba(255,255,255,0.16);
       background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      display:grid;
-      place-items:center;
+      display:grid; place-items:center; position: relative; overflow:hidden;
     }
+    .member h3{ margin: 0 0 8px; font-size: 1.22rem; font-weight: 900; text-transform: uppercase; }
+    .member p{ margin: 0; color: rgba(230,57,70,0.92); font-weight: 900; text-transform: uppercase; font-size: 0.78rem; }
 
-    /* CTA PANEL */
+    /* CTA BAND */
+    .cta-band{
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 66px 0 70px;
+    }
     .cta-panel{
       border: 1px solid rgba(230,57,70,0.22);
       background: linear-gradient(180deg, rgba(230,57,70,0.10), rgba(255,255,255,0.03));
       border-radius: var(--radius2);
       padding: 26px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.35);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 18px;
       flex-wrap: wrap;
     }
+    .cta-panel h2{
+      margin: 0;
+      font-size: clamp(1.4rem, 2.1vw, 2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    .cta-panel p{
+      margin: 6px 0 0;
+      color: rgba(255,255,255,0.70);
+      max-width: 62ch;
+    }
 
-    /* CONTACT FORM */
+    /* CONTACT */
+    .contact{ padding-bottom: 84px; }
     .form-card{
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.03);
       border-radius: var(--radius2);
       padding: 22px;
+      box-shadow: 0 26px 70px rgba(0,0,0,0.35);
       max-width: 720px;
       margin: 0 auto;
     }
-    form{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
+    form{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
     form .full{ grid-column: 1 / -1; }
     input, textarea{
-      width: 100%;
-      padding: 14px;
-      border-radius: 14px;
+      width: 100%; padding: 14px; border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.30);
-      color: #fff;
+      background: rgba(0,0,0,0.30); color: rgba(255,255,255,0.90);
     }
+    .form-actions{ display:flex; gap: 12px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top: 6px; }
+    .fineprint{ color: rgba(255,255,255,0.52); font-size: 0.9rem; }
 
     /* FOOTER */
     footer{
       border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 26px 0 40px;
-      text-align:center;
-      color: rgba(255,255,255,0.45);
-      font-size: 0.82rem;
-      text-transform: uppercase;
+      padding: 26px 0 40px; text-align:center;
+      color: rgba(255,255,255,0.45); font-size: 0.82rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
     }
 
     /* ------------------------------------------------------------------
-       RESPONSIVE OVERRIDES (MOBILE FIXES)
+       RESPONSIVE & OVERRIDES
     ------------------------------------------------------------------ */
+
+    @media (min-width: 921px) {
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+    }
 
     @media (max-width: 1040px){
       .grid{ grid-template-columns: repeat(2, 1fr); }
@@ -409,65 +657,28 @@
 
     @media (max-width: 920px){
       .hero-grid{ grid-template-columns: 1fr; }
-      /* FIX 1: Ensure Team Grids stack */
-      .team-grid { grid-template-columns: 1fr !important; }
-      .attention-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 840px){
-      /* FIX 2: Reduce top padding to close gap with sticky nav */
-      header.hero { padding: 30px 0 40px; }
-      
+      header.hero { padding: 30px 0 40px; } /* Fix 3: Reduce top padding */
       .nav-links{ display:none; }
       .menu-btn{ display:inline-flex; align-items:center; gap:10px; }
-      
       .mobile-drawer{
+        display:none;
         border-top: 1px solid rgba(255,255,255,0.10);
         padding: 10px 0 14px;
       }
       .mobile-drawer a{
-        display:block;
-        padding: 10px 0;
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 0.86rem;
+        display:block; padding: 10px 0; font-weight: 800;
+        text-transform: uppercase; font-size: 0.86rem;
       }
+      .attention-grid{ grid-template-columns: 1fr; }
       form{ grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px){
       .grid{ grid-template-columns: 1fr; }
-      /* FIX 3: Ensure video placeholder respects mobile width */
-      .video-placeholder { min-height: auto; }
     }
-
-    /* ICON OVERRIDES */
-    .subsection-title .icon{ width: 22px; height: 22px; color: var(--accent); flex: 0 0 auto; }
-    .subsection-title .label{ display:inline-flex; align-items:center; gap: 10px; }
-    .subsection-title{
-      margin: 0 0 14px; font-size: 1.1rem; text-transform: uppercase;
-      font-weight: 900; display:flex; align-items:center; justify-content:space-between; gap: 12px;
-    }
-    .subsection-title .rule{ flex: 1; height: 1px; background: rgba(255,255,255,0.10); }
-
-    /* MOVE TEAM OVERRIDES INTO DESKTOP-ONLY QUERY 
-       This prevents them from overriding the 1-column mobile layout */
-    @media (min-width: 921px) {
-      .team-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .member .badge{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(0,0,0,0.22); color: rgba(255,255,255,0.80);
-      text-transform: uppercase; font-size: 0.72rem; margin: 0 auto 14px;
-      backdrop-filter: blur(10px);
-    }
-    .member h3{ margin: 0 0 8px; font-size: 1.22rem; font-weight: 900; text-transform: uppercase; }
-    .member p{ margin: 0; color: var(--accent); font-weight: 900; text-transform: uppercase; font-size: 0.78rem; }
-
   </style>
 </head>
 
@@ -475,21 +686,16 @@
   <nav>
     <div class="wrap">
       <div class="nav-inner">
-        <div class="logo" aria-label="FNX Studio">
-          FNX STUDIO<span class="dot" aria-hidden="true"></span>
-        </div>
-
+        <div class="logo">FNX STUDIO<span class="dot"></span></div>
         <div class="nav-links">
           <a href="#work">THE WORK</a>
           <a href="#team">THE TEAM</a>
           <a href="#start">START HERE</a>
         </div>
-
-        <button class="menu-btn" id="menuBtn" aria-expanded="false">
-          <span aria-hidden="true">☰ MENU</span>
+        <button class="menu-btn" id="menuBtn">
+          <span>☰ MENU</span>
         </button>
       </div>
-
       <div class="mobile-drawer" id="mobileDrawer">
         <a href="#work">THE WORK</a>
         <a href="#team">THE HUMANS</a>
@@ -502,41 +708,60 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <div class="kicker">
-            <span class="pill">FNX</span>
-            <span>Vision. Influence. Execution.</span>
-          </div>
-          <h1>Infinite Scale. Undeniable <span class="accent">HEART</span>.</h1>
+          <div class="kicker"><span class="pill">FNX</span> Vision. Influence. Execution.</div>
+          <h1>Infinite Scale. Undeniable<br /><span class="accent">HEART</span>.</h1>
           <p class="sub">Cinematic AI production for leaders who refuse to compromise on taste.</p>
           <div class="hero-actions">
-            <button class="cta-btn" onclick="document.querySelector('#start').scrollIntoView({behavior:'smooth'});">
-              Reserve Your 2026 Vision Session
-            </button>
-            <button class="ghost-btn" onclick="document.querySelector('#work').scrollIntoView({behavior:'smooth'});">
-              Experience The Results
-            </button>
+            <button class="cta-btn" onclick="document.querySelector('#start').scrollIntoView({behavior:'smooth'});">Reserve Your 2026 Vision Session</button>
+            <button class="ghost-btn" onclick="document.querySelector('#work').scrollIntoView({behavior:'smooth'});">Experience The Results</button>
           </div>
         </div>
-
         <div class="video-placeholder">
           <div class="video-center">
             <div class="play">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 7.5v9l8-4.5-8-4.5Z" fill="white"/></svg>
             </div>
-            <div style="font-weight:900; text-transform:uppercase; font-size:0.86rem;">Trailer</div>
+            <div class="video-label">Trailer</div>
+            <div class="video-note">YouTube embed placeholder</div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <section id="work" class="work">
+  <section class="attention" id="logic">
+    <div class="wrap">
+      <div class="attention-box">
+        <h2 class="attention-title">YOU, MULTIPLIED.</h2>
+        <p class="attention-copy">Most communication today is just digital noise. Human-centric AI execution will ensure your voice isn't just heard... <strong>it’s felt</strong>.</p>
+        <div class="attention-grid">
+          <div class="attention-card">
+            <div class="attention-top"><span>YOUR UNTAMED VOICE</span><span class="n">01</span></div>
+            <div class="attention-val">A message people repeat.</div>
+            <p class="attention-sub">Distilling your unique point of view into a narrative that stops the scroll.</p>
+          </div>
+          <div class="attention-card">
+            <div class="attention-top"><span>SIGNATURE PRESENCE</span><span class="n">02</span></div>
+            <div class="attention-val">A look that signals legacy.</div>
+            <p class="attention-sub">Cinematic aesthetics that ensure your digital presence captivates.</p>
+          </div>
+          <div class="attention-card">
+            <div class="attention-top"><span>THE GIFT OF TIME</span><span class="n">03</span></div>
+            <div class="attention-val">Output at speed.</div>
+            <p class="attention-sub">Reclaim days of your life while expanding reach exponentially.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
     <div class="wrap">
       <div class="section-head">
         <h2><span class="accent">Iconic</span> AI-Execution</h2>
         <p>Get your time back without looking like a bad deepfake.</p>
       </div>
-      
+
       <div class="subsection-title">
         <span class="label"><span>Cinematic AI Motion</span></span>
         <span class="rule"></span>
@@ -546,27 +771,30 @@
         <article class="card">
           <div class="visual">[VIDEO]</div>
           <h4>The Emotional Response</h4>
-          <ul class="bullets">
-            <li><span>•</span> Human-centric storytelling</li>
-            <li><span>•</span> High-conversion emotional hooks</li>
-          </ul>
+          <ul class="bullets"><li><span>•</span> Human-centric storytelling</li><li><span>•</span> Emotional hooks</li></ul>
         </article>
         <article class="card">
           <div class="visual">[VIDEO]</div>
           <h4>The Digital Twin</h4>
-          <ul class="bullets">
-            <li><span>•</span> AI-generated brand leaders</li>
-            <li><span>•</span> Infinite scale, zero filming</li>
-          </ul>
+          <ul class="bullets"><li><span>•</span> AI brand leaders</li><li><span>•</span> Infinite scale</li></ul>
         </article>
         <article class="card">
           <div class="visual">[VIDEO]</div>
           <h4>The Visionary Manifesto</h4>
-          <ul class="bullets">
-            <li><span>•</span> High-concept trailers</li>
-            <li><span>•</span> Metaphorical storytelling</li>
-          </ul>
+          <ul class="bullets"><li><span>•</span> Brand trailers</li><li><span>•</span> Storytelling</li></ul>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <div class="cta-panel">
+        <div>
+          <h2>Modern Authority.</h2>
+          <p>World-class production at the speed of AI.</p>
+        </div>
+        <button class="cta-btn" onclick="document.querySelector('#start').scrollIntoView({behavior:'smooth'});">Start Your Vision</button>
       </div>
     </div>
   </section>
@@ -581,13 +809,13 @@
           <div class="badge">EXPERIENCE</div>
           <div class="headshot">KM</div>
           <h3>Kelli Marsh</h3>
-          <p>Operations & Flow</p>
+          <p>Operations &amp; Flow</p>
         </div>
         <div class="member">
           <div class="badge">VISION</div>
           <div class="headshot">MS</div>
           <h3>Maggie Scott</h3>
-          <p>Strategy & Purpose</p>
+          <p>Strategy &amp; Purpose</p>
         </div>
         <div class="member">
           <div class="badge">BUILD</div>
@@ -609,9 +837,10 @@
           <input type="text" placeholder="Name" required />
           <input type="text" placeholder="Company Name" required />
           <input class="full" type="email" placeholder="Email" required />
-          <textarea class="full" placeholder="Goal for 2026..." rows="4" required></textarea>
+          <textarea class="full" placeholder="Goals..." rows="4" required></textarea>
           <div class="form-actions full">
-            <button type="submit" class="cta-btn">Request My Session Today</button>
+            <button type="submit" class="cta-btn">Request My Session</button>
+            <div class="fineprint">Limited project scheduling available.</div>
           </div>
         </form>
       </div>
@@ -625,18 +854,9 @@
   <script>
     const btn = document.getElementById('menuBtn');
     const drawer = document.getElementById('mobileDrawer');
-
     btn?.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!open));
+      const open = drawer.style.display === 'block';
       drawer.style.display = open ? 'none' : 'block';
-    });
-
-    drawer?.querySelectorAll('a').forEach(el => {
-      el.addEventListener('click', () => {
-        btn.setAttribute('aria-expanded', 'false');
-        drawer.style.display = 'none';
-      });
     });
   </script>
 </body>
